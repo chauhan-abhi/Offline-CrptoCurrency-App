@@ -1,4 +1,4 @@
-package com.abhi.crptoadvancedandroid.di
+package com.abhi.crptoadvancedandroid.di.module
 
 import com.abhi.crptoadvancedandroid.MainActivity
 import dagger.Module

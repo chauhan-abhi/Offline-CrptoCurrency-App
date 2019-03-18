@@ -1,4 +1,4 @@
-package com.abhi.crptoadvancedandroid.di
+package com.abhi.crptoadvancedandroid.di.module
 
 import android.app.Application
 import android.content.Context
@@ -15,20 +15,20 @@ class AppModule(val app: Application) {
 
     @Provides
     @Singleton
-    fun provideApplicationContext(): Application = app
+    fun providesApplicationContext(): Application = app
 
     @Provides
     @Singleton
-    fun provideContext(app: Application): Context = app.applicationContext
+    fun providesContext(app: Application): Context = app.applicationContext
 
     @Provides
     @Singleton
-    fun provideCryptocurrenciesDatabase(app: Application): CryptoDb = Room.databaseBuilder(app,
+    fun providesCryptocurrenciesDatabase(app: Application): CryptoDb = Room.databaseBuilder(app,
         CryptoDb::class.java, Constants.DATABASE_NAME)
         .fallbackToDestructiveMigration()
         .build()
 
     @Provides
     @Singleton
-    fun provideCrptocurrenciesDao(database: CryptoDb): CryptocurrenciesDao = database.cryptocurrencyDao()
+    fun providesCrptocurrenciesDao(database: CryptoDb): CryptocurrenciesDao = database.cryptocurrencyDao()
 }
