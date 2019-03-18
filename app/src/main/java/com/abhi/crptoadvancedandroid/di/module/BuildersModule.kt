@@ -1,6 +1,6 @@
 package com.abhi.crptoadvancedandroid.di.module
 
-import com.abhi.crptoadvancedandroid.MainActivity
+import com.abhi.crptoadvancedandroid.ui.list.CryptocurrenciesActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -8,5 +8,5 @@ import dagger.android.ContributesAndroidInjector
 abstract class BuildersModule {
 
 @ContributesAndroidInjector
-abstract fun contributeMainActivity(): MainActivity
+abstract fun contributeMainActivity(): CryptocurrenciesActivity
 }
