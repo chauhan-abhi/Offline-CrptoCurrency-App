@@ -6,6 +6,7 @@ import androidx.room.Room
 import com.abhi.crptoadvancedandroid.data.source.local.CryptoDb
 import com.abhi.crptoadvancedandroid.data.source.local.CryptocurrenciesDao
 import com.abhi.crptoadvancedandroid.utils.Constants
+import com.abhi.crptoadvancedandroid.utils.Utils
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -31,4 +32,8 @@ class AppModule(val app: Application) {
     @Provides
     @Singleton
     fun providesCrptocurrenciesDao(database: CryptoDb): CryptocurrenciesDao = database.cryptocurrencyDao()
+
+    @Provides
+    @Singleton
+    fun providesUtils(): Utils = Utils(app)
 }

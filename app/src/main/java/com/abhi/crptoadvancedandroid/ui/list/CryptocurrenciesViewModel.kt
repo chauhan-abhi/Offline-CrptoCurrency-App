@@ -26,7 +26,7 @@ class CryptocurrenciesViewModel @Inject constructor(
 
     fun cryptocurrenciesLoader(): LiveData<Boolean> = cryptocurrenciesLoader
 
-    fun loadCryptocurrencies() {
+    fun loadCryptocurrencies(limit: Int, offset: Int) {
         disposableObserver = object : DisposableObserver<List<Cryptocurrency>>() {
             override fun onComplete() {
 
@@ -50,7 +50,7 @@ class CryptocurrenciesViewModel @Inject constructor(
          * maybe you don’t want to display the DB items,
          * and then quickly change them with the new items
          */
-        repository.getCryptocurrencies()
+        repository.getCryptocurrencies(limit, offset)
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
             .debounce(400, TimeUnit.MILLISECONDS)
